@@ -1,0 +1,122 @@
+/* src/styles/table.css */
+
+/* ===== โครงและคอนเทนเนอร์ ===== */
+.table-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed;           /* คุมคอลัมน์ให้เสถียร */
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* ===== ส่วนหัว/บอดี้ ===== */
+.table thead th {
+  background: #f3f4f6;
+  font-weight: 700;
+  text-align: left;
+  padding: 10px 12px;
+  font-size: 14px;
+  border-bottom: 1px solid #e5e7eb;
+  white-space: nowrap;
+}
+.table tbody td {
+  padding: 10px 12px;
+  font-size: 14px;
+  border-top: 1px solid #eef0f3;
+  vertical-align: middle;
+}
+
+/* แถวสลับสี */
+.table tbody tr:nth-child(odd)  { background: #fff; }
+.table tbody tr:nth-child(even) { background: #fafbfc; }
+
+/* ข้อความเกินช่องให้ … */
+.cell {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ===== โหมดกระชับ/แน่น ===== */
+.table--compact thead th,
+.table--compact tbody td { padding: 8px 10px; font-size: 13.5px; }
+
+.table--dense thead th { padding: 6px 10px; font-size: 13px; line-height: 1.2; }
+.table--dense tbody td { padding: 8px 10px; line-height: 1.35; }
+
+/* ===== ยูทิลิตี้ความกว้างคอลัมน์ ===== */
+.col-xxs { width: 72px; }
+.col-xs  { width: 100px; }
+.col-sm  { width: 140px; }
+.col-md  { width: 180px; }
+.col-lg  { width: 240px; }
+.col-xl  { width: 320px; }
+
+/* ===== คอลัมน์ปุ่มการจัดการ ===== */
+.table th.col-actions,
+.table td.col-actions {
+  width: 200px;
+  min-width: 200px;
+  text-align: center;      /* กึ่งกลางแนวนอน */
+  white-space: nowrap;
+}
+.table .actions{
+  display: inline-flex;
+  align-items: center;     /* กึ่งกลางแนวตั้ง */
+  justify-content: center; /* กึ่งกลางแนวนอน */
+  gap: .5rem;
+}
+
+/* จอเล็ก */
+@media (max-width: 768px){
+  .table--compact thead th,
+  .table--compact tbody td { padding: 6px 8px; font-size: 13px; }
+  .table th.col-actions,
+  .table td.col-actions { width: 170px; min-width: 170px; }
+}
+
+/* ===== ตารางพรีวิว (นำเข้า .xlsx/.csv) ===== */
+.table--preview{
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;           /* ทำงานร่วมกับ <colgroup> */
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.table--preview thead th{
+  background: #f3f4f6;
+  font-weight: 700;
+  text-align: left;
+  padding: 8px 10px;
+  font-size: 13px;
+  border-bottom: 1px solid #e5e7eb;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.table--preview tbody td{
+  padding: 8px 10px;
+  font-size: 13px;
+  border-top: 1px solid #eef0f3;
+  vertical-align: middle;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.table--preview tbody tr:nth-child(even){ background:#fafbfc; }
+
+/* ให้ address ยาวได้หลายบรรทัด */
+.table--preview td.col-address{
+  white-space: normal;
+  word-break: break-word;
+}
+
+/* สถานะ/ปุ่มกึ่งกลาง */
+.table--preview .col-status{ text-align: center; }
